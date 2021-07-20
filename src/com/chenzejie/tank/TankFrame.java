@@ -1,6 +1,8 @@
 package com.chenzejie.tank;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -13,6 +15,7 @@ public class TankFrame extends Frame {
         setResizable(false); // 设置窗口f不能改变大小
         setTitle("tank war"); // 设置窗口标题文字
         setVisible(true); // 显示窗口
+        this.addKeyListener(new MyKeyListener());
         addWindowListener(new WindowAdapter() { // 添加window监听器：监听window closing，匿名内部类
             @Override
             public void windowClosing(WindowEvent e) {
@@ -30,5 +33,17 @@ public class TankFrame extends Frame {
         // 让黑方块动起来
         x += 10;
         y += 10;
+    }
+
+    static class MyKeyListener extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            System.out.println("key pressed");
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            System.out.println("key released");
+        }
     }
 }
