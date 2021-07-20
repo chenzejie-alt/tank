@@ -32,13 +32,14 @@ public class TankFrame extends Frame {
         g.fillRect(x,y,50,50); // 画一个黑方块
         // 让黑方块动起来
         x += 10;
-        y += 10;
+//        y += 10;
     }
 
-    static class MyKeyListener extends KeyAdapter {
+    class MyKeyListener extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
-            System.out.println("key pressed");
+            x += 20;
+//            repaint();
         }
 
         @Override
