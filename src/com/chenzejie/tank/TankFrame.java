@@ -7,10 +7,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class TankFrame extends Frame {
-    int x = 200;
-    int y = 200;
-    Dir dir = Dir.DOWN;
-    private static final int SPEED = 10;
+    Tank myTank = new Tank(200, 200, Dir.DOWN);
 
     public TankFrame() throws HeadlessException {
         setSize(800,600); // 设置窗口f的大小
@@ -31,21 +28,7 @@ public class TankFrame extends Frame {
     public void paint(Graphics g) {
 //        System.out.println("paint");
         // g为一只画笔
-        g.fillRect(x,y,50,50); // 画一个黑方块
-        switch (dir) {
-            case LEFT:
-                x -= SPEED;
-                break;
-            case UP:
-                y -= SPEED;
-                break;
-            case RIGHT:
-                x += SPEED;
-                break;
-            case DOWN:
-                y += SPEED;
-                break;
-        }
+        myTank.paint(g);
         // 让黑方块动起来
 //        x += 10;
 //        y += 10;
@@ -105,16 +88,16 @@ public class TankFrame extends Frame {
 
         private void setMainTankDir() {
             if (bL) {
-                dir = Dir.LEFT;
+                myTank.setDir(Dir.LEFT);
             }
             if (bU) {
-                dir = Dir.UP;
+                myTank.setDir(Dir.UP);
             }
             if (bR) {
-                dir = Dir.RIGHT;
+                myTank.setDir(Dir.RIGHT);
             }
             if (bD) {
-                dir = Dir.DOWN;
+                myTank.setDir(Dir.DOWN);
             }
         }
     }
